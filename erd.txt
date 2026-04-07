@@ -1,0 +1,67 @@
+@startuml
+!theme plain
+hide empty methods
+
+entity "Customer" as customer {
+  * id : String
+  --
+  name : String
+  email : String
+}
+
+entity "ShoppingCart" as cart {
+  * cart_id : String
+  --
+  totalPrice : Double
+}
+
+entity "CartItem" as cartitem {
+  * quantity : Integer
+}
+
+entity "Order" as order {
+  * id : String
+  --
+  totalAmount : Double
+  status : OrderStatus
+}
+
+entity "OrderItem" as orderitem {
+  * quantity : Integer
+  * priceAtPurchase : Double
+}
+
+entity "Product" as product {
+  * id : String
+  --
+  name : String
+  category : ProductCategory
+  price : Double
+  stock : Integer
+}
+
+entity "Payment" as payment {
+  * id : String
+  --
+  amount : Double
+  status : PaymentStatus
+}
+
+entity "PaymentMethod" as method {
+  * type : String
+  --
+  details : String
+}
+
+customer "1" -- "1" cart : has >
+cart "1" *-- "0..*" cartitem : contains >
+cartitem "0..*" -- "1" product : references >
+
+customer "1" -- "0..*" order : places >
+order "1" *-- "1..*" orderitem : contains >
+orderitem "0..*" -- "1" product : references >
+
+order "1" -- "1..*" payment : paid via >
+payment "1..*" -- "1" method : uses >
+
+@enduml

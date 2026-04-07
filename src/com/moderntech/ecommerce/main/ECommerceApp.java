@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ECommerceApp {
-    static void main() {
+    public static void main() {
         Map<String, Product> catalog = getStringProductMap();
 
         System.out.println("--- КАТАЛОГ ТОВАРОВ ---");
