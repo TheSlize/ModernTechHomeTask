@@ -21,7 +21,7 @@ import java.util.Map;
  * стратегий оплаты (Ozon, Wildberries) и методов (карта, кошелек, наличные).
  */
 public class ECommerceApp {
-    public static void main() {
+    public static void main(String [] args) {
         Map<String, Product> catalog = getStringProductMap();
 
         System.out.println("--- КАТАЛОГ ТОВАРОВ ---");
