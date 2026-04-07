@@ -1,7 +1,10 @@
 package com.moderntech.ecommerce.payment;
 
 import com.moderntech.ecommerce.models.Order;
-
+/**
+ * Конкретная реализация стратегии оплаты (Payment).
+ * Инкапсулирует логику взаимодействия с платежным шлюзом.
+ */
 public class OzonPayment implements Payment {
     @Override
     public PaymentStatus processPayment(Order order, PaymentMethod method, double amount) {

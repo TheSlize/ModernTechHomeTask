@@ -12,6 +12,13 @@ public class Order {
     private final double totalAmount;
     private OrderStatus status;
 
+    /**
+     * Конструктор заказа. При создании генерирует уникальный ID,
+     * переносит товары из корзины в список покупок и фиксирует итоговую сумму.
+     *
+     * @param customer покупатель, оформляющий заказ
+     * @param cart     корзина с выбранными товарами
+     */
     public Order(Customer customer, ShoppingCart cart) {
         this.id = UUID.randomUUID().toString().substring(0, 8).toUpperCase();
         this.customer = customer;
